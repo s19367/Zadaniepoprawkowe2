@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 require_once 'witcher.php';
 include_once 'creature.php';
 include_once 'eliksir.php';
@@ -39,3 +39,5 @@ $_SESSION['eliksir'] = serialize(new eliksir(null, null));
         Play
     </button>
 </form>
+
+
