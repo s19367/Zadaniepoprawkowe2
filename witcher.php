@@ -91,8 +91,96 @@ class witcher extends creature
         $this->expmax = $expMax;
     }
 
+    /**
+     * @param $exp
+     */
+    public function getExp($exp)
+    {
+        $this->exp = $exp;
+    }
 
-   
+    /**
+     * @return mixed
+     */
+    public function showExp()
+    {
+        return $this->exp;
+    }
+
+    /**
+     * inc lvl
+     */
+    public function incLvl()
+    {
+        $this->lvl++;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function showLvl()
+    {
+        return $this->lvl;
+    }
+
+    /** ustawia bonus obrony
+     * @return bool
+     */
+    public function def()
+    {
+        $this->defcap= true;
+        $bonus = parent::getagi();
+        $tp = $bonus/2;
+        $bonus += $tp;
+        $this->bonus= $bonus;
+        $this->pass=true;
+        return $bonus;
+    }
+
+    /** zwraca bonus za obrone
+     * @return mixed
+     */
+    public function getdef()
+    {
+        return $this->bonus;
+    }
+
+    /** sprawdza czy jest aktywny bonus obrony
+     * @return mixed
+     */
+    public function defcap()
+    {
+        return $this->defcap;
+    }
+
+    /** usuwa aktywny bonus obrony
+     *
+     */
+    public function del_defcap()
+    {
+        $this->pass=false;
+        $this->defcap=false;
+    }
+
+    /** sorwadza czy gracz spasowal
+     * @return mixed
+     */
+    public  function CheckPass()
+    {
+        return $this->pass;
+    }
+
+    /** usuwa aktywny pass
+     *
+     */
+    public function depass()
+    {
+        $this->pass=false;
+    }
+
+    /** ustawia pass na true, zwieksza ap++
+     * @return int
+     */
     public function pass()
     {
         $this->pass=true;
